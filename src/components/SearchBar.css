@@ -1,0 +1,61 @@
+/* styles.css */
+/* #101820, #FEE715 */
+.mainContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 10vh;
+    background-color: #252729;
+    margin-bottom: 40px;
+}
+
+.search-container {
+    display: flex;
+    border-radius: 10px;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    background-color: #FEE715;
+    height: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    max-width: 600px;
+}
+
+form {
+    display: flex;
+    width: 100%;
+}
+
+.search-input {
+    flex: 1;
+    padding: 10px;
+    border: 2px solid #ccc;
+    border-radius: 4px 0 0 4px;
+    font-size: 16px;
+    outline: none;
+    transition: border-color 0.3s;
+}
+
+.search-input:focus {
+    border-color: #101820;
+}
+
+.search-button {
+    padding: 10px 20px;
+    border: 2px solid #101820;
+    border-radius: 0 4px 4px 0;
+    background-color: #101820;
+    color: #FEE715;
+    font-size: 16px;
+    cursor: pointer;
+    outline: none;
+    transition: background-color 0.3s, border-color 0.3s;
+}
+
+.search-button:hover {
+    background-color: #101820;
+    border-color: #101820;
+}

@@ -1,0 +1,10 @@
+.carouselContainer{
+margin:60px auto;
+
+}
+
+.carousel-inner{
+    height: 60vh !important;
+    border-radius: 30px;
+    
+}

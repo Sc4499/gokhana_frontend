@@ -1,0 +1,48 @@
+/* #101820, #FEE715 */
+.ellipsis {
+    display: -webkit-box; /* Establishes a flexible box layout */
+    line-clamp: 2;
+    -webkit-line-clamp: 2; /* Limits the number of lines to show */
+    -webkit-box-orient: vertical; /* Vertical orientation of the box */
+    overflow: hidden; /* Hides the overflow text */
+    text-overflow: ellipsis; /* Adds the ellipsis (...) */
+    height: 2em; /* Adjust the height according to line height */
+    line-height: 1em; /* Line height of text */
+    max-width: 320px; /* Set the width of the container */
+}
+
+.neon-border {
+  
+    background-color: #101820; /* Background color of the box */
+    border: 2px solid #fee715; /* Border color for neon effect */
+  
+    border-radius: 10px; /* Optional: rounded corners */
+}
+.ingdnt{
+    display: block;
+    font-size: 12px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 320px;
+    font-weight: bolder;
+}
+.foodname{
+    color:rgb(82, 20, 1) !important;
+    font-weight:bolder;
+}
+.category{
+    color:rgb(4, 164, 34);
+   
+    font-size: 22px;
+}
+
+.cardcolor{
+    background: #fee715 !important;
+    text-align: left !important;
+}
+
+.btn-theme{
+    background-color: #101820 !important;
+    color: #fee715 !important;
+}

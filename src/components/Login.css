@@ -1,0 +1,21 @@
+/* #101820, #FEE715 */
+.formcontainer{
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 40px;
+    width : 400px;
+    height: auto;
+    background: #fee715;
+    padding: 10px;
+
+}
+
+.btnBox{
+    text-align: center;
+}
+
+.btn-theme{
+
+    background-color: #101820 !important;
+    color: #fee715 !important;
+}
