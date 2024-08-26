@@ -10,8 +10,14 @@ const Home = () => {
   const [foodItems, setFoodItems] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const [searchValue, setSearchValue] = useState('');
 
+  // Handler function to update the search value
+  const handleSearchChange = (value) => {
+    setSearchValue(value);
+  };
   useEffect(() => {
+
     const fetchData = async () => {
       try {
         const response = await fetch('http://localhost:5000/api/fooditem');
@@ -29,7 +35,10 @@ const Home = () => {
 
     fetchData();
   }, []);
-
+  const filteredFoodItems = foodItems.filter(item =>
+    item.name.toLowerCase().includes(searchValue.toLowerCase()) ||
+    item.description.toLowerCase().includes(searchValue.toLowerCase())
+  );
 
   if (loading) return <h1 style={{color : "white"}}>Loading...</h1>;
   if (error) return <p>Error: {error.message}</p>;
@@ -42,21 +51,21 @@ const Home = () => {
       <FlatwareIcon className='forkIcon'/><span> What do you want to eat...</span>
       </div>
      
-      <SearchBar/>
+      <SearchBar onSearchChange={handleSearchChange}/>
    <div className="container text-center">
    <div className='headBox headingone'>
       <WineBarIcon className='forkIcon'/><span> Our different variety of Dishes...</span>
       </div>
   <div className="row ">
-    {
-      foodItems?.map((item)=>{
-        return(
-          <div className="col-md-4 mb-4" key={item._id}><Card 
-          data = {item}
-          /></div>
-        )
-      })
-    }
+  {filteredFoodItems.length > 0 ? (
+            filteredFoodItems.map((item) => (
+              <div className="col-md-4 mb-4" key={item._id}>
+                <Card data={item} />
+              </div>
+            ))
+          ) : (
+            <p>No results found</p>
+          )}
    
    
   </div>

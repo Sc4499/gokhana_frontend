@@ -1,9 +1,16 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import "./Header.css"
 import FastfoodIcon from '@mui/icons-material/Fastfood';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 const Header = () => {
+  const navigate = useNavigate();
+  const isLogin = localStorage.getItem("authToken");
+  const handleLogout = () =>{
+    localStorage.removeItem("authToken")
+    navigate("/login");
+  }
+
    return (
 <>
 <nav className="navbar navbar-expand-lg navContainer">
@@ -17,15 +24,26 @@ const Header = () => {
         <li className="nav-item">
           <Link className="nav-link active" aria-current="page" to="/">Home</Link>
         </li>
-        <li className="nav-item">
-          <Link className="nav-link" to="/pricing">Pricing</Link>
+      
+      {isLogin ? <>
+     
+          <li className="nav-item">
+          <Link className="nav-link" to="/pricing">MyOrder</Link>
         </li>
         <li className="nav-item">
-          <Link className="nav-link" to="/login">Login</Link>
-        </li>
+          <button className='btn fs-4 btn-theme ' onClick={handleLogout}>Logout</button>
+        </li> 
+      </> : <>
         <li className="nav-item">
-          <Link className="nav-link" to="/createUser">Signup</Link>
-        </li>
+          <Link className="nav-link btn btn-theme me-1" to="/login">Login</Link>
+        </li> 
+            <li className="nav-item">
+            <Link className="nav-link btn btn-theme" to="/createUser">Signup</Link>
+          </li> 
+        </>  }
+      
+        
+    
       
       
       </ul>
