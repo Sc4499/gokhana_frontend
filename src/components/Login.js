@@ -32,7 +32,8 @@ const Login = () => {
                  throw new Error("Something went wrong");
             } else {
                 console.log("Success:", json);
-                localStorage.setItem("authToken", json.authToken)
+                localStorage.setItem("authToken", json.authToken);
+                localStorage.setItem("email", email);
                 navigate("/"); 
             }
     

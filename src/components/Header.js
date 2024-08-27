@@ -3,7 +3,12 @@ import { Link, useNavigate } from 'react-router-dom'
 import "./Header.css"
 import FastfoodIcon from '@mui/icons-material/Fastfood';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
+import { useCart, useDispatchCart } from '../contextReducer';
 const Header = () => {
+
+  const data = useCart();
+
+
   const navigate = useNavigate();
   const isLogin = localStorage.getItem("authToken");
   const handleLogout = () =>{
@@ -42,16 +47,17 @@ const Header = () => {
           </li> 
         </>  }
       
-        
+        <li className="nav-item counteritem">
+    <Link className="nav-link" to="/cart"> <ShoppingCartIcon/><span className='count'>{data.length}</span></Link>
+    </li>
     
       
       
       </ul>
   
-    <div class="d-flex counteritem">
-      <button className='btn'><ShoppingCartIcon/><span className='count'>2</span></button>
-    
-      </div>
+    {/* <div class="d-flex counteritem">
+ 
+      </div> */}
       </div>
   </div>
 </nav>

@@ -6,6 +6,7 @@ import { BrowserRouter as Router, Route, Routes} from 'react-router-dom';
 import Login from './components/Login';
 import CreateUser from './components/CreateUser';
 import { CartProvider } from './contextReducer';
+import Cart from './components/Cart';
 function App() {
   return (
     <div className="App">
@@ -17,6 +18,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/login" element={<Login />} />
           <Route path="/createUser" element={<CreateUser />} />
+          <Route path="/cart" element={<Cart/>} />
       </Routes>
 
 <Footer />

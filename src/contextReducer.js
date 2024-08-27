@@ -5,7 +5,11 @@ const cartDispatch = createContext();
 const reducer = (state, action) =>{
 switch(action.type){
     case "ADD" : 
-    return [...state, {id : action.id, name : action.name,description : action.description, price : action.price, quantity : action.quantity}]
+    return [...state, {id : action.id, name : action.name,description : action.description, price : action.price, quantity : action.quantity,variety : action.variety,option : action.option}]
+    case "DROP" : 
+    let emptyArr = []
+    return emptyArr
+    
     default :
     console.log("error in reducer")
 }
